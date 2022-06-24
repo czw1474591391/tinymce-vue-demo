@@ -38,7 +38,6 @@ import 'tinymce/plugins/template'
 import 'tinymce/plugins/charmap'
 import 'tinymce/plugins/nonbreaking'
 import 'tinymce/plugins/insertdatetime'
-import 'tinymce/plugins/imagetools'
 import 'tinymce/plugins/autosave'
 import 'tinymce/plugins/autoresize'
 import 'tinymce/plugins/save'
@@ -48,6 +47,9 @@ import 'tinymce/plugins/print'
 // import '../../../public/tinymce-plugins/lineheight'
 // import '../../../public/tinymce-plugins/axupimgs'// 图片批量上传插件
 // import '../../../public/tinymce-plugins/bdmap'
+import '@/util/tinymce-plugins/upfile'
+import '@/util/tinymce-plugins/imagetools'
+import '@/util/tinymce-plugins/emoticons'
 
 export default {
   components: {
@@ -78,16 +80,28 @@ export default {
     // 富文本的插件
     plugins: {
       type: [String, Array],
-      default:
-        'print save preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template code codesample table charmap hr nonbreaking insertdatetime advlist lists wordcount imagetools textpattern autosave autoresize'
+      default: `emoticons upfile
+        print save preview searchreplace autolink directionality
+        visualblocks visualchars fullscreen image imagetools link media template
+        code codesample table charmap hr nonbreaking insertdatetime
+        advlist lists wordcount textpattern autosave autoresize
+      `
     },
     // 工具栏
     toolbar: {
       type: [String, Array],
-      default:
-        'code undo redo restoredraft | cut copy paste pastetext | forecolor backcolor bold italic underline strikethrough link codesample | alignleft aligncenter alignright alignjustify outdent indent formatpainter | \
-    styleselect formatselect fontselect fontsizeselect | bullist numlist | blockquote subscript superscript removeformat | \
-    table image media charmap hr pagebreak insertdatetime | fullscreen preview | save print'
+      default: `emoticons upfile
+        | cut copy paste pastetext
+        | code undo redo restoredraft
+        | forecolor backcolor bold italic underline strikethrough link codesample
+        | alignleft aligncenter alignright alignjustify outdent indent formatpainter
+        | bullist numlist
+        | blockquote subscript superscript removeformat
+        | table image media charmap hr pagebreak insertdatetime
+        | fullscreen preview
+        | save print
+        | styleselect formatselect fontselect fontsizeselect
+      `
     },
     // 内容样式-（直接为编辑区编写css）
     content_style: {
@@ -102,21 +116,37 @@ export default {
     // 字体
     font_formats: {
       type: String, // 配置编辑器可选则的字体列表。格式为：标题1=字体名1,字体名2可多个;标题2=字体名3,每一项用分号分隔，字体名之间用逗号分隔。字体名写法可参考CSS的font-family。
-      default:
-        '微软雅黑=Microsoft YaHei,Helvetica Neue,PingFang SC,sans-serif;苹果苹方=PingFang SC,Microsoft YaHei,sans-serif;宋体=simsun,serif;仿宋体=FangSong,serif;黑体=SimHei,sans-serif;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;'
+      default: `微软雅黑=Microsoft YaHei,
+        Helvetica Neue,
+        PingFang SC,
+        sans-serif;
+        苹果苹方=PingFang SC,
+        Microsoft YaHei,
+        sans-serif;
+        宋体=simsun,
+        serif;仿宋体=FangSong,
+        serif;黑体=SimHei,
+        sans-serif;Arial=arial,
+        helvetica,sans-serif;
+        Arial Black=arial black,
+        avant garde;
+        Book Antiqua=book antiqua,
+        palatino;`
     }
   },
   data() {
     return {
       myValue: this.value, // 富文本内容
       init: {
+        emoticons_database_url: `${this.baseUrl}/tinymce-plugins/emoticons/emojis.js`,
+        placeholder: '请输入',
         language: 'zh_CN', //语言
         language_url: `${this.baseUrl}/tinymce/langs/zh_CN.js`, //语言包的路径
-        // skin_url: `${this.baseUrl}/tinymce/skins/ui/oxide`,
-        // content_css: `${this.baseUrl}/tinymce/skins/content/default/content.css`,
-        skin_url: `${this.baseUrl}/tinymce/skins/ui/oxide-dark`, // 暗色系
-        content_css: `${this.baseUrl}/tinymce/skins/content/dark/content.css`, // 暗色系
-        // selector: 'textarea',
+        skin_url: `${this.baseUrl}/tinymce/skins/ui/oxide`,
+        content_css: `${this.baseUrl}/tinymce/skins/content/default/content.css`,
+        // skin_url: `${this.baseUrl}/tinymce/skins/ui/oxide-dark`, // 暗色系
+        // content_css: `${this.baseUrl}/tinymce/skins/content/dark/content.css`, // 暗色系
+        selector: 'textarea',
         toolbar_mode: 'wrap', // 工具栏模式, 取值：floating / sliding / scrolling / wrap
         height: this.height, // 编辑器高度
         min_height: this.height, // 编辑器最小高度（最小去掉貌似有问题）
@@ -147,9 +177,6 @@ export default {
     myValue(newValue) {
       this.$emit('input', newValue) // 子组件在传值的时候，选用input，如this.$emit(‘input’,val)，在父组件直接用v-model绑定，就可以获取到了
     }
-  },
-  mounted() {
-    // tinymce.init({})
   },
   methods: {
     aa() {
