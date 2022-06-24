@@ -1,24 +1,5 @@
 # tinymce-vue-demo
 
-## Project setup
-```
-yarn install
-```
+## 需要安装 tinymce 与 tinymce-vue 这两个包
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 同时要把 node_modeles 内的 tinymce 中的 skins 单独提出到 public 文件夹内（解决找不到 js css 文件的问题）
