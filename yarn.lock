@@ -1118,10 +1118,10 @@
   "resolved" "https://registry.npmmirror.com/@soda/get-current-script/-/get-current-script-1.0.2.tgz"
   "version" "1.0.2"
 
-"@tinymce/tinymce-vue@^3.0.1":
-  "integrity" "sha512-UnS1YTmzlASA/G23v8zZFgmjR34BSzMkYDSkGOe4ZqWDkz2uwHmiC1sNQj/70DVWG9br8cTPVjUhgOn/b+3ygQ=="
-  "resolved" "https://registry.npmmirror.com/@tinymce/tinymce-vue/-/tinymce-vue-3.0.1.tgz"
-  "version" "3.0.1"
+"@tinymce/tinymce-vue@^3.2.8":
+  "integrity" "sha512-jEz+NZ0g+FZFz273OEUWz9QkwPMyjc5AJYyxOgu51O1Y5UaJ/6IUddXTX6A20mwCleEv5ebwNYdalviafx4fnA=="
+  "resolved" "https://registry.npmmirror.com/@tinymce/tinymce-vue/-/tinymce-vue-3.2.8.tgz"
+  "version" "3.2.8"
 
 "@trysound/sax@0.2.0":
   "integrity" "sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA=="
@@ -1685,6 +1685,21 @@
   dependencies:
     "@webassemblyjs/ast" "1.11.1"
     "@xtuc/long" "4.2.2"
+
+"@wiris/mathtype-html-integration-devkit@1.8.0":
+  "integrity" "sha512-9mnPIKE2zXNlHG93QPbRS5KPr98uY+9kqG/ISmQBQy41VnU/MrDuO2h/ZltgA5mxM4Y3h2YA/RJoQ/t3jQ1b4A=="
+  "resolved" "https://registry.npmmirror.com/@wiris/mathtype-html-integration-devkit/-/mathtype-html-integration-devkit-1.8.0.tgz"
+  "version" "1.8.0"
+  dependencies:
+    "raw-loader" "^4.0.2"
+    "uuid" "^8.3.2"
+
+"@wiris/mathtype-tinymce5@^7.27.1":
+  "integrity" "sha512-UaIo2PLh7/I0ZbN0LaVW+impoLjE4Dcmk9CXFUhVjNtN5ygBfKgjtfVDIy1/HoM2e/ROWyqARTelupoDlpvPOw=="
+  "resolved" "https://registry.npmmirror.com/@wiris/mathtype-tinymce5/-/mathtype-tinymce5-7.29.0.tgz"
+  "version" "7.29.0"
+  dependencies:
+    "@wiris/mathtype-html-integration-devkit" "1.8.0"
 
 "@xtuc/ieee754@^1.2.0":
   "integrity" "sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA=="
@@ -4861,6 +4876,14 @@
     "http-errors" "2.0.0"
     "iconv-lite" "0.4.24"
     "unpipe" "1.0.0"
+
+"raw-loader@^4.0.2":
+  "integrity" "sha512-ZnScIV3ag9A4wPX/ZayxL/jZH+euYb6FcUinPcgiQW0+UBtEv0O6Q3lGd3cqJ+GHH+rksEv3Pj99oxJ3u3VIKA=="
+  "resolved" "https://registry.npmmirror.com/raw-loader/-/raw-loader-4.0.2.tgz"
+  "version" "4.0.2"
+  dependencies:
+    "loader-utils" "^2.0.0"
+    "schema-utils" "^3.0.0"
 
 "read-pkg-up@^7.0.1":
   "integrity" "sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg=="
